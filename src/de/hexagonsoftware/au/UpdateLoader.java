@@ -8,8 +8,15 @@ public class UpdateLoader {
         String temp = FileLoader.loadFile(files.getAbsolutePath());
         String[] fileList = temp.split("\\n");
 
+        int fileAmount = fileList.length;
+
+        int i = 1;
+
+        FileDownloader fd = new FileDownloader(false, true);
         for (String s : fileList) {
-            FileDownloader.download(web_adress+"/"+s, System.getProperty("user.dir"), s, true);
+            System.out.print("Progress: "+i+"/"+fileAmount+" | FILE: "+web_adress+"/"+s+"\r");
+            fd.download(web_adress+"/"+s, System.getProperty("user.dir"), s);
+            i++;
         }
     }
 }

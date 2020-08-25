@@ -40,7 +40,7 @@ public class Main {
             log("Authenticating...");
             Authenticator.setDefault(new de.hexagonsoftware.au.Authenticator(AUTH_USR, AUTH_PWD));
         }
-        FileDownloader.download(ONLINE_VERSION_FOLDER+"/version.txt", System.getProperty("user.dir"), "olVersion.txt", true);
+        FileDownloader.download(ONLINE_VERSION_FOLDER+"/version.txt", System.getProperty("user.dir"), "olVersion.txt", true, true);
         String onlineVersion = FileLoader.loadFile(System.getProperty("user.dir")+"/olVersion.txt");
         log("Found online version as: "+onlineVersion);
 
@@ -54,7 +54,7 @@ public class Main {
 
             // Download the files.txt which contains a list of files which the update reuires.
             log("Grabbing file list...");
-            FileDownloader.download(ONLINE_VERSION_FOLDER+"/files.txt", System.getProperty("user.dir"), "files.txt", true);
+            FileDownloader.download(ONLINE_VERSION_FOLDER+"/files.txt", System.getProperty("user.dir"), "files.txt", true, true);
 
             // Start downloading these files
             log("Starting download...\n");
